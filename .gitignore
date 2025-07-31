@@ -43,3 +43,5 @@
 # dirs
 [Bb]in/
 [Bb]uild/
+
+update-git.cmd
