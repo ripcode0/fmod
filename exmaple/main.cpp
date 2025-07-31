@@ -21,7 +21,6 @@ const char* FMOD_ErrorString(FMOD_RESULT result) {
         case FMOD_ERR_FILE_NOTFOUND: return "File not found";
         case FMOD_ERR_FORMAT: return "Unsupported file format";
         case FMOD_ERR_OUTPUT_INIT: return "Output device not initialized";
-        // ... 필요에 따라 추가 ...
         default: return "Unknown FMOD error";
     }
 }
@@ -43,11 +42,11 @@ int main(int args, char* argv[])
     FMOD_System_Create(&system);
     FMOD_System_Init(system, 512, FMOD_INIT_NORMAL, nullptr);
 
-    FMOD_CHECK(FMOD_System_CreateSound(system, "../../data/bgm.mp3", FMOD_DEFAULT, nullptr,&sound));
+    FMOD_CHECK(FMOD_System_CreateSound(system, "../../../data/bgm.mp3", FMOD_DEFAULT, nullptr,&sound));
     
-    FMOD_CHECK(FMOD_System_CreateSound(system, "../../data/sword.mp3", FMOD_DEFAULT, nullptr,&sound_sword));
+    FMOD_CHECK(FMOD_System_CreateSound(system, "../../../data/sword.mp3", FMOD_DEFAULT, nullptr,&sound_sword));
 
-    FMOD_CHECK(FMOD_System_CreateSound(system, "../../data/slash.mp3", FMOD_DEFAULT, nullptr,&sound_slash));
+    FMOD_CHECK(FMOD_System_CreateSound(system, "../../../data/slash.mp3", FMOD_DEFAULT, nullptr,&sound_slash));
 
     printf("Playing BGM ...\n");
     printf("Press D : Sword Attack\nPress S : Slash Attack\nPress Q : Quit");
