@@ -43,5 +43,6 @@
 # dirs
 [Bb]in/
 [Bb]uild/
+.vscode/
 
 update-git.cmd
