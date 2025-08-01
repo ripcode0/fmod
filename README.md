@@ -15,10 +15,10 @@
 ### Build Compatibility
 | Compiler         | Version      | Platform     | Support    |
 |------------------|--------------|--------------|-----------|
-| MSVC  (cl.exe)   | 19.39.33523  | Windows      | O |
+| MSVC  (cl.exe)   | 19.39.33523  | Windows      |      O    |
 | GCC   (ucrt64)   | 13.2.0       | Windows      | O |
 | Clang (MSYS2)    | 13.2.0       | Windows      | O |
 | Clang (LLVM)     | 17.0.6       | Windows      | O |
 
-Audio powered by FMOD
+Audio powered by [FMOD](https://www.fmod.com/)
 
