@@ -1,5 +1,5 @@
 ## FMOD (Audio Library)
-!["fmod logo"](./data/fmod1.png)
+!["fmod logo"](./sub/fmod1.png)
 ### FMOD Pre-Build API
 * This repository provides a pre-built API based on `FMOD`.
 * It includes precompiled binaries and headers for seamless integration without requiring you to build `FMOD` from source
@@ -21,6 +21,7 @@
 | Clang (LLVM)     | 17.0.6       | Windows      | O |
 
 
-Powered by [FMOD Studio](https://www.fmod.com/) – © Firelight Technologies Pty Ltd.
+Powered by [FMOD Studio](https://www.fmod.com/) – © Firelight Technologies Pty Ltd.  
+
 Commercial use requires a valid license. See [FMOD Licensing](https://www.fmod.com/licensing).
 
