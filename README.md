@@ -20,5 +20,7 @@
 | Clang (MSYS2)    | 13.2.0       | Windows      | O |
 | Clang (LLVM)     | 17.0.6       | Windows      | O |
 
-Audio powered by [FMOD](https://www.fmod.com/)
+
+Powered by [FMOD Studio](https://www.fmod.com/) – © Firelight Technologies Pty Ltd.
+Commercial use requires a valid license. See [FMOD Licensing](https://www.fmod.com/licensing).
 
