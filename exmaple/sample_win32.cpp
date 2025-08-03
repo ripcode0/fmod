@@ -1,5 +1,5 @@
 #include <iostream>
-#include <fmod.h>
+#include <fmod/fmod.h>
 #include <conio.h>
 
 const char* FMOD_ErrorString(FMOD_RESULT result) {
@@ -42,11 +42,11 @@ int main(int args, char* argv[])
     FMOD_System_Create(&system);
     FMOD_System_Init(system, 512, FMOD_INIT_NORMAL, nullptr);
 
-    FMOD_CHECK(FMOD_System_CreateSound(system, "../../../data/bgm.mp3", FMOD_DEFAULT, nullptr,&sound));
+    FMOD_CHECK(FMOD_System_CreateSound(system, "bgm.mp3", FMOD_DEFAULT, nullptr,&sound));
     
-    FMOD_CHECK(FMOD_System_CreateSound(system, "../../../data/sword.mp3", FMOD_DEFAULT, nullptr,&sound_sword));
+    FMOD_CHECK(FMOD_System_CreateSound(system, "sword.mp3", FMOD_DEFAULT, nullptr,&sound_sword));
 
-    FMOD_CHECK(FMOD_System_CreateSound(system, "../../../data/slash.mp3", FMOD_DEFAULT, nullptr,&sound_slash));
+    FMOD_CHECK(FMOD_System_CreateSound(system, "slash.mp3", FMOD_DEFAULT, nullptr,&sound_slash));
 
     printf("Playing BGM ...\n");
     printf("Press D : Sword Attack\nPress S : Slash Attack\nPress Q : Quit");

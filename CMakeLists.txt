@@ -12,26 +12,36 @@ endif()
 if(WIN32)
     set(fmod_lib "fmod64_vc${CMAKE_STATIC_LIBRARY_SUFFIX}")
     set(fmod_dll "fmod64${CMAKE_SHARED_LIBRARY_SUFFIX}")
+elseif(UNIX AND NOT APPLE)
+    set(fmod_so_name "libfmod.so.10")
+    set(fmod_so "libfmod.so.10.20")
+    message(${fmod_so_name})
 endif()
 
 option(ENABLE_EXAMPLE "enable examples" ON)
 
-add_library(fmod SHARED IMPORTED)
+add_library(fmod SHARED IMPORTED GLOBAL)
 add_library(fmod::fmod ALIAS fmod)
 
-# if(WIN32 AND ${CMAKE_CXX_COMPILER_ID} STREQUAL "GNU")
-#     set(fmod_lib "${CMAKE_STATIC_LIBRARY_PREFIX}fmod${CMAKE_STATIC_LIBRARY_SUFFIX}")
-# endif()
 
 message(STATUS "[fmod] fmod implib : ${fmod_lib}")
 message(STATUS "[fmod] fmod shared : ${fmod_dll}")
 
-set_target_properties(fmod PROPERTIES
-    IMPORTED_LOCATION "${CMAKE_CURRENT_SOURCE_DIR}/lib/${fmod_dll}"
-    IMPORTED_IMPLIB "${CMAKE_CURRENT_SOURCE_DIR}/lib/${fmod_lib}"
-)
+if(WIN32)
+    set_target_properties(fmod PROPERTIES
+        IMPORTED_LOCATION "${CMAKE_CURRENT_SOURCE_DIR}/lib/${fmod_dll}"
+        IMPORTED_IMPLIB "${CMAKE_CURRENT_SOURCE_DIR}/lib/${fmod_lib}"
+    )
+else()
+    set_target_properties(fmod PROPERTIES
+        IMPORTED_LOCATION "${CMAKE_CURRENT_SOURCE_DIR}/lib/linux/${fmod_so}"
+        IMPORTED_SONAME "${fmod_so_name}"
+    )
+endif()
 
-target_include_directories(fmod INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_include_directories(fmod INTERFACE 
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>)
 
 
 if(ENABLE_EXAMPLE)
