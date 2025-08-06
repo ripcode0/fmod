@@ -34,7 +34,6 @@ const char* FMOD_ErrorString(FMOD_RESULT result) {
         exit(1); \
     }
 
-// --- 리눅스용 입력 처리 유틸리티 ---
 int kbhit() {
     struct termios oldt, newt;
     int ch;
@@ -112,7 +111,7 @@ int main(int argc, char* argv[])
             }
         }
 
-        usleep(10000); // CPU 쉬게
+        usleep(10000); 
     }
 
     FMOD_Sound_Release(sound);

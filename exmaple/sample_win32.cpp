@@ -48,8 +48,14 @@ int main(int args, char* argv[])
 
     FMOD_CHECK(FMOD_System_CreateSound(system, "slash.mp3", FMOD_DEFAULT, nullptr,&sound_slash));
 
-    printf("Playing BGM ...\n");
-    printf("Press D : Sword Attack\nPress S : Slash Attack\nPress Q : Quit");
+    std::cout << "\n==============================\n";
+    std::cout << "         Playing BGM ...       \n";
+    std::cout << "==============================\n";
+    std::cout << " Controls:\n";
+    std::cout << "   [D] Sword Attack \n";
+    std::cout << "   [S] Slash Attack \n";
+    std::cout << "   [Q] Quit \n";
+    std::cout << "==============================\n";
     FMOD_System_PlaySound(system, sound, nullptr, false, &channel[0]);
 
     FMOD_BOOL is_running = true;
