@@ -12,18 +12,18 @@ endif()
 if(WIN32 AND MSVC)
     set(fmod_lib "fmod64_vc${CMAKE_STATIC_LIBRARY_SUFFIX}")
     set(fmod_dll "fmod64${CMAKE_SHARED_LIBRARY_SUFFIX}")
-elseif(WIN32 AND ${CMAKE_C_COMPILER_ID} STREQUAL "GNU")
-    #set(fmod_lib "${CMAKE_STATIC_LIBRARY_PREFIX}fmod${CMAKE_STATIC_LIBRARY_SUFFIX}")
+elseif(WIN32 AND ${CMAKE_C_COMPILER_ID} STREQUAL "GNU") # windows with gnu tripple
     set(fmod_lib "fmod64_vc.lib")
-    #set(fmod_lib "libfmod.a")
+    #set(fmod_lib "libfmod.a") # not tested
     set(fmod_dll "fmod64.dll")
-elseif(UNIX AND NOT APPLE)
+elseif(UNIX AND NOT APPLE) # linux
     set(fmod_so_name "libfmod.so.10")
     set(fmod_so "libfmod.so.10.20")
     message(${fmod_so_name})
 endif()
 
 option(ENABLE_EXAMPLE "enable examples" ON)
+option(ENABLE_INSTALL "enable to installation" ON)
 
 add_library(fmod SHARED IMPORTED GLOBAL)
 add_library(fmod::fmod ALIAS fmod)
@@ -48,9 +48,12 @@ target_include_directories(fmod INTERFACE
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>)
 
-
 if(ENABLE_EXAMPLE)
     add_subdirectory(exmaple)
 endif()
 
-message(STATUS "[build] ${CMAKE_CXX_COMPILER_ID}")
+message(STATUS "[build] Compiler : ${CMAKE_CXX_COMPILER_ID}")
+
+if(ENABLE_INSTALL)
+    include(cmake/fmod_install.cmake)
+endif()
