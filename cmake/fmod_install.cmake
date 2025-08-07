@@ -38,7 +38,7 @@ configure_package_config_file(
 )
 
 # TODO "include\" not to be realative
-install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 install(FILES "${fmod_lib_path}" DESTINATION ${CMAKE_INSTALL_LIBDIR})
 install(FILES "${fmod_dll_path}" DESTINATION ${CMAKE_INSTALL_BINDIR})
 
