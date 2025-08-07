@@ -37,6 +37,7 @@ configure_package_config_file(
     NO_CHECK_REQUIRED_COMPONENTS_MACRO
 )
 
+include(GNUInstallDirs)
 # TODO "include\" not to be realative
 install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 install(FILES "${fmod_lib_path}" DESTINATION ${CMAKE_INSTALL_LIBDIR})
