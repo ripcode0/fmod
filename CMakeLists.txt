@@ -9,14 +9,24 @@ else()
     set(fmod_standalone FALSE)
 endif()
 
+set(fmod_lib "")
+set(fmod_dll "")
+
 if(WIN32 AND MSVC)
+    message(STATUS "[fmod] compiler : ${CMAKE_CXX_COMPILER_ID}")
     set(fmod_lib "fmod64_vc${CMAKE_STATIC_LIBRARY_SUFFIX}")
     set(fmod_dll "fmod64${CMAKE_SHARED_LIBRARY_SUFFIX}")
-elseif(WIN32 AND ${CMAKE_C_COMPILER_ID} STREQUAL "GNU") # windows with gnu tripple
+elseif(WIN32 AND ${CMAKE_CXX_COMPILER_ID} STREQUAL "GNU") # windows with gnu tripple
+    message(STATUS "[fmod] compiler : ${CMAKE_CXX_COMPILER_ID}")
     set(fmod_lib "fmod64_vc.lib")
     #set(fmod_lib "libfmod.a") # not tested
     set(fmod_dll "fmod64.dll")
+elseif(WIN32 AND ${CMAKE_CXX_COMPILER_ID} STREQUAL "Clang") # windows with gnu tripple
+    message(STATUS "[fmod] compiler : ${CMAKE_CXX_COMPILER_ID}")
+    set(fmod_lib "fmod64_vc.lib")
+    set(fmod_dll "fmod64.dll")
 elseif(UNIX AND NOT APPLE) # linux
+    message(STATUS "[fmod] compiler : ${CMAKE_CXX_COMPILER_ID}")
     set(fmod_so_name "libfmod.so.10")
     set(fmod_so "libfmod.so.10.20")
     message(${fmod_so_name})
