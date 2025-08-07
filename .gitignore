@@ -44,5 +44,6 @@
 [Bb]in/
 [Bb]uild/
 .vscode/
+[Ee]ternal/
 
 update-git.cmd
