@@ -14,4 +14,4 @@ set_target_properties(fmod PROPERTIES
     IMPORTED_IMPLIB "${prefix_dir}/lib/@fmod_lib@"
     )
 
-get_target_properties(fmod_SHARED_LIB fmod IMPORTED_LOCATION)
+get_target_property(fmod_SHARED_LIB fmod IMPORTED_LOCATION)
