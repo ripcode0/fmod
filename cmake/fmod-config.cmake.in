@@ -2,14 +2,16 @@
 
 set(prefix_dir "${PACKAGE_PREFIX_DIR}")
 
-set(fmod_INCLUDE_DIR "${PACKAGE_PREFIX_DIR}/include")
-set(fmod_LIBRARY_DIR "${PACKAGE_PREFIX_DIR}/lib")
+set(fmod_INCLUDE_DIRS "${PACKAGE_PREFIX_DIR}/include")
+set(fmod_LIBRARY_DIRS "${PACKAGE_PREFIX_DIR}/lib")
 
 
 add_library(fmod SHARED IMPORTED GLOBAL)
 
 set_target_properties(fmod PROPERTIES
-    INTERFACE_INCLUDE_DIRECTORIES "${fmod_INCLUDE_DIR}"
+    INTERFACE_INCLUDE_DIRECTORIES "${fmod_INCLUDE_DIRS}"
     IMPORTED_LOCATION "${prefix_dir}/bin/@fmod_dll@"
     IMPORTED_IMPLIB "${prefix_dir}/lib/@fmod_lib@"
     )
+
+get_target_properties(fmod_SHARED_LIB fmod IMPORTED_LOCATION)
