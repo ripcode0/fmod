@@ -1,26 +1,5 @@
 install(CODE "message(STATUS \"[fmod] install fmod stuff ...\")")
 
-# trying to configurations of installations
-# if(TARGET fmod::fmod)
-#     message()
-# endif()
-
-#CHECK exist install prefix
-
-install(SCRIPT "cmake/test.cmake")
-
-# include(GNUInstallDirs)
-
-# it dosent work with IMPORTED LIB
-# install(
-#     TARGETS fmod
-#     EXPORT fmod-targets
-#     INCLUDES DESTINATION ${CMAKE_INSTALL_INCLDEDIR}
-#     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
-#     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-#     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-# )
-
 #there is two option for imported lib (transform to INTERFACE LIBRARY or make config file manually)
 
 get_target_property(fmod_lib_path fmod IMPORTED_IMPLIB)

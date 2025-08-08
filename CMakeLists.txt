@@ -64,6 +64,7 @@ endif()
 
 message(STATUS "[build] Compiler : ${CMAKE_CXX_COMPILER_ID}")
 
+
 if(ENABLE_INSTALL)
     include(cmake/fmod_install.cmake)
 endif()

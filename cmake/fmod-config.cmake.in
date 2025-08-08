@@ -1,7 +1,15 @@
+@PACKAGE_INIT@
 
-add_library(fmod_lib SHARED IMPORTED GLOBAL)
+set(prefix_dir "${PACKAGE_PREFIX_DIR}")
 
-set_target_properties(fmod_lib PROPERTIES
-    IMPORTED_LOCATION "${CMAKE_CURRENT_SOURCE_DIR}/lib/${fmod_dll}"
-    IMPORTED_IMPLIB "${CMAKE_CURRENT_SOURCE_DIR}/lib/${fmod_lib}"
+set(fmod_INCLUDE_DIR "${PACKAGE_PREFIX_DIR}/include")
+set(fmod_LIBRARY_DIR "${PACKAGE_PREFIX_DIR}/lib")
+
+
+add_library(fmod SHARED IMPORTED GLOBAL)
+
+set_target_properties(fmod PROPERTIES
+    INTERFACE_INCLUDE_DIRECTORIES "${fmod_INCLUDE_DIR}"
+    IMPORTED_LOCATION "${prefix_dir}/bin/@fmod_dll@"
+    IMPORTED_IMPLIB "${prefix_dir}/lib/@fmod_lib@"
     )

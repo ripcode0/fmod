@@ -17,15 +17,8 @@ if(MSVC)
     )
 endif()
 
+
 target_link_libraries(sample PRIVATE fmod::fmod)
-
-get_target_property(fmod_dll fmod::fmod IMPORTED_LOCATION)
-
-# add_custom_target(print_dll ALL
-#     COMMAND ${CMAKE_COMMAND} -E echo found the ${fmod_dll}
-# )
-
-# add_dependencies(sample print_dll)
 
 if(WIN32)
     add_custom_command(
