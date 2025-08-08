@@ -56,6 +56,7 @@ int main(int args, char* argv[])
     std::cout << "   [S] Slash Attack \n";
     std::cout << "   [Q] Quit \n";
     std::cout << "==============================\n";
+    
     FMOD_System_PlaySound(system, sound, nullptr, false, &channel[0]);
 
     FMOD_BOOL is_running = true;

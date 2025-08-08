@@ -86,9 +86,15 @@ int main(int argc, char* argv[])
     FMOD_CHECK(FMOD_System_CreateSound(system, "sword.mp3", FMOD_DEFAULT, nullptr, &sound_sword));
     FMOD_CHECK(FMOD_System_CreateSound(system, "slash.mp3", FMOD_DEFAULT, nullptr, &sound_slash));
 
-    std::cout << "Playing BGM ..." << std::endl;
-    std::cout << "Press D : Sword Attack\nPress S : Slash Attack\nPress Q : Quit" << std::endl;
-
+    std::cout << "\n==============================\n";
+    std::cout << "         Playing BGM ...       \n";
+    std::cout << "==============================\n";
+    std::cout << " Controls:\n";
+    std::cout << "   [D] Sword Attack \n";
+    std::cout << "   [S] Slash Attack \n";
+    std::cout << "   [Q] Quit \n";
+    std::cout << "==============================\n";
+    
     FMOD_CHECK(FMOD_System_PlaySound(system, sound, nullptr, false, &channel[0]));
 
     FMOD_BOOL is_running = true;
