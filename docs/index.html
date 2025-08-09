@@ -1,14 +1,184 @@
+
 <!doctype html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>프로젝트 홈</title>
-  <!-- (선택) Search Console 메타태그: 검증 토큰을 넣어두면 바로 검증 가능 -->
-  <!-- <meta name="google-site-verification" content="여기에_토큰값" /> -->
+  <title>FMOD Pre‑Build API</title>
+  <meta name="description" content="Pre-built FMOD Core API package with binaries, headers, and CMake integration." />
+  <style>
+    :root{
+      --bg:#0b0e14; --panel:#11151f; --muted:#9aa4b2; --text:#e6edf3; --brand:#ff4d4f; --accent:#33c3ff; --card:#0f1320; --border:#1e2430;
+      --code-bg:#0a0f1c; --code-border:#1b2233;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text); background:linear-gradient(180deg, var(--bg), #0d1220 40%, #0a0f1c); line-height:1.6;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{
+      padding:56px 24px 32px; text-align:center; border-bottom:1px solid var(--border); background:radial-gradient(1200px 600px at 50% -200px, rgba(51,195,255,.15), transparent);
+    }
+    .container{max-width:980px; margin:0 auto; padding:0 24px}
+    .logo{display:inline-flex; align-items:center; gap:14px; justify-content:center}
+    .logo-badge{width:48px; height:48px; display:grid; place-items:center; border-radius:12px; background:linear-gradient(135deg, var(--brand), #ff8a65)}
+    .logo-badge span{font-weight:800; color:white}
+    h1{margin:8px 0 6px; font-size: clamp(28px, 5vw, 40px); letter-spacing:.2px}
+    .subtitle{color:var(--muted); margin:0}
+    .card{background:var(--card); border:1px solid var(--border); border-radius:16px; padding:20px}
+    .grid{display:grid; gap:18px}
+    .grid.cols-2{grid-template-columns: 1fr}
+    @media (min-width: 900px){.grid.cols-2{grid-template-columns: 1fr 1fr}}
+    h2{margin:26px 0 10px; font-size:22px}
+    h3{margin:18px 0 8px; font-size:18px}
+    .kicker{font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted)}
+    .tag{display:inline-block; padding:2px 8px; border:1px solid var(--border); border-radius:999px; font-size:12px; color:var(--muted)}
+    .list{margin:10px 0; padding-left:18px}
+    .list li{margin:6px 0}
+    pre{margin:12px 0; background:var(--code-bg); border:1px solid var(--code-border); border-radius:12px; padding:14px; overflow:auto}
+    code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; font-size: 13px}
+    .code-row{position:relative}
+    .copy{position:absolute; top:10px; right:10px; font-size:12px; background:#0b1220; border:1px solid var(--border); color:var(--text); padding:6px 10px; border-radius:8px; cursor:pointer}
+    .copy:active{transform:translateY(1px)}
+    table{width:100%; border-collapse:separate; border-spacing:0; border:1px solid var(--border); border-radius:12px; overflow:hidden}
+    th,td{padding:10px 12px; border-bottom:1px solid var(--border)}
+    th{background:var(--panel); text-align:left; font-weight:600}
+    tr:last-child td{border-bottom:none}
+    footer{color:var(--muted); text-align:center; padding:32px}
+    .note{font-size:14px; color:var(--muted)}
+    .hero-actions{margin-top:18px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
+    .btn{display:inline-block; padding:10px 14px; border-radius:10px; border:1px solid var(--border); background:var(--panel); color:var(--text)}
+    .btn.primary{background:linear-gradient(135deg, var(--brand), #ff8a65); border-color: transparent; color:white}
+    .section{padding:28px 0}
+  </style>
 </head>
 <body>
-  <h1>프로젝트 홈</h1>
-  <p><a href="https://github.com/사용자명/리포지토리명">GitHub 저장소로 이동</a></p>
+  <header>
+    <div class="container">
+      <div class="logo" aria-label="FMOD logo">
+        <div class="logo-badge" title="FMOD"><span>FMOD</span></div>
+        <div>
+          <div class="kicker">Audio Library</div>
+          <h1>FMOD Pre‑Build API</h1>
+          <p class="subtitle">Pre‑built package based on FMOD Core API v1.10.20 with binaries, headers, and CMake integration.</p>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <a class="btn primary" href="#getting-started">Get Started</a>
+        <a class="btn" href="#license">License</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section" id="about">
+      <div class="card">
+        <h2>About</h2>
+        <p>This repository provides a <strong>pre‑built API</strong> based on FMOD. It includes precompiled binaries and headers for seamless integration without building FMOD from source.</p>
+        <ul class="list">
+          <li>Supports <strong>FMOD Core API v1.10.20</strong></li>
+          <li>Provides <strong>pre‑built DLLs</strong> (Windows)</li>
+          <li><strong>CMake</strong> integration for painless setup</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="getting-started">
+      <h2>Usage</h2>
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>Standalone Build</h3>
+          <div class="code-row">
+            <button class="copy" data-copy="#code-standalone">Copy</button>
+            <pre id="code-standalone"><code>git clone https://github.com/ripcode0/fmod.git
+cmake -S . -B build -DENABLE_EXAMPLE=ON
+cmake --build build</code></pre>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Install</h3>
+          <div class="code-row">
+            <button class="copy" data-copy="#code-install">Copy</button>
+            <pre id="code-install"><code>cmake --install build --prefix &lt;install path&gt;</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>Root <code>CMakeLists.txt</code></h3>
+          <div class="code-row">
+            <button class="copy" data-copy="#code-cmake">Copy</button>
+            <pre id="code-cmake"><code>set(CMAKE_PREFIX_PATH &lt;install path&gt;)
+find_package(fmod REQUIRED)
+
+# Link to your executable
+add_executable(myapp main.cpp)
+target_link_libraries(myapp PRIVATE fmod)  # fmod::fmod also works</code></pre>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Copying DLLs (Windows)</h3>
+          <p class="note">FMOD is a <strong>SHARED</strong> library. After building or installing, copy the required DLLs next to your application.</p>
+          <div class="code-row">
+            <button class="copy" data-copy="#code-dll">Copy</button>
+            <pre id="code-dll"><code>add_custom_command(
+  TARGET myapp POST_BUILD
+  COMMAND ${CMAKE_COMMAND} -E copy_if_different
+          ${fmod_SHARED_LIB}
+          $&lt;TARGET_FILE_DIR:myapp&gt;
+)</code></pre>
+          </div>
+          <p class="note">If the DLLs are missing, the program may fail to start or produce runtime errors.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="vars">
+      <div class="card">
+        <h2>Built‑in Variables</h2>
+        <table aria-label="Built-in variables">
+          <thead><tr><th>Variable</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><code>fmod_INCLUDE_DIRS</code></td><td>Include directories for FMOD headers.</td></tr>
+            <tr><td><code>fmod_LIBRARIES</code></td><td>Imported library target(s) for linking.</td></tr>
+            <tr><td><code>fmod_SHARED_LIB</code></td><td>Path to the runtime DLL to deploy with your app (Windows).</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" id="credits">
+      <div class="card">
+        <h2 id="license">License & Attribution</h2>
+        <p>Powered by <strong>FMOD Studio</strong> – © Firelight Technologies Pty Ltd.</p>
+        <p class="note">Commercial use requires a valid license. See <a href="https://www.fmod.com/licensing" target="_blank" rel="noreferrer noopener">FMOD Licensing</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">ripcode0@gmail.com.</div>
+  </footer>
+
+  <script>
+    // copy buttons
+    for (const btn of document.querySelectorAll('.copy')) {
+      btn.addEventListener('click', () => {
+        const sel = btn.getAttribute('data-copy');
+        const el = document.querySelector(sel);
+        if (!el) return;
+        const text = el.innerText;
+        navigator.clipboard.writeText(text).then(() => {
+          const prev = btn.textContent;
+          btn.textContent = 'Copied!';
+          setTimeout(() => btn.textContent = prev, 1200);
+        });
+      });
+    }
+  </script>
 </body>
 </html>
