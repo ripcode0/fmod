@@ -36,7 +36,7 @@
         POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
         ${fmod_SHARED_LIB}
-        $<TARGET_FILE_DIR:<excutable target>>
+        $<TARGET_FILE_DIR:<excutable>>
     )
     ```
 * **build-in Variables**
